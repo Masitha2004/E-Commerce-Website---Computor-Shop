@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShopEase | Shop</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-logo">ShopEase</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="shop.html" class="active">Shop</a></li>
+    <li class="cart-link">
+        <a href="cart.html">Cart</a>
+    </li>
+
+    <li><a href="payment.html">Checkout</a></li>
+  </ul>
+</nav>
+
+<h2 class="page-title">Shop Categories</h2>
+
+<!-- ================= ELECTRONICS ================= -->
+<h3 class="category-title">Electronics</h3>
+<div class="products-grid">
+  <div class="product-card">
+    <img src="">
+    <h3>Wireless Headphones</h3>
+    <p class="price">$25</p>
+    <button onclick="addToCart('Wireless Headphones',25)">Add to Cart</button>
+  
+  </div>
+
+  <div class="product-card">
+    <img src="images/speaker.jpg">
+    <h3>Bluetooth Speaker</h3>
+    <p class="price">$30</p>
+    <button onclick="addToCart('Bluetooth Speaker',30)">Add to Cart</button>
+    
+  </div>
+</div>
+
+<!-- ================= Parts ================= -->
+<h3 class="category-title">pc & Laptops</h3>
+<div class="products-grid">
+  <div class="product-card">
+    <img src="images/tshirt.jpg">
+    <h3>i7 8th Gen Laptop|Asus</h3>
+    <p class="price">$15</p>
+    <button onclick="addToCart('i7 8th Gen Laptop|Asus',15)">Add to Cart</button>
+    <a href="product.html?id=1" class="view-btn">View Details</a>
+  </div>
+
+  <div class="product-card">
+    <img src="images/shoes.jpg">
+    <h3>i5 8th Gen Laptop|Dell</h3>
+    <p class="price">$45</p>
+    <button onclick="addToCart('i5 8th Gen Laptop|Dell',45)">Add to Cart</button>
+    <a href="product.html?id=1" class="view-btn">View Details</a>
+  </div>
+</div>
+
+<!-- ================= ACCESSORIES ================= -->
+<h3 class="category-title">Accessories</h3>
+<div class="products-grid">
+  <div class="product-card">
+    <img src="images/watch.jpg">
+    <h3>Keyboard</h3>
+    <p class="price">$40</p>
+    <button onclick="addToCart('Keyboard',40)">Add to Cart</button>
+    <a href="product.html?id=1" class="view-btn">View Details</a>
+  </div>
+
+  <div class="product-card">
+    <img src="images/bag.jpg">
+    <h3>Mouse</h3>
+    <p class="price">$35</p>
+    <button onclick="addToCart('Mouse',35)">Add to Cart</button>
+    <a href="product.html?id=1" class="view-btn">View Details</a>
+  </div>
+</div>
+
+<!-- ================= Furnitures ================= -->
+<h3 class="category-title">Furnitures</h3>
+<div class="products-grid">
+  <div class="product-card">
+    <img src="images/lamp.jpg">
+    <h3>Computer Table</h3>
+    <p class="price">$22</p>
+    <button onclick="addToCart('Computer Table',22)">Add to Cart</button>
+    <a href="product.html?id=1" class="view-btn">View Details</a>
+  </div>
+
+  <div class="product-card">
+    <img src="images/chair.jpg">
+    <h3>Computer Chair</h3>
+    <p class="price">$55</p>
+    <button onclick="addToCart('Computer Chair',55)">Add to Cart</button>
+    <a href="product_de.html" class="view-btn">View Details</a>
+  </div>
+</div>
+
+<script src="cart.js">
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function addToCart(name, price){
+  alert("Add to cart clicked!"); // TEST
+
+  const existing = cart.find(item => item.name === name);
+
+  if(existing){
+    existing.qty += 1;
+  } else {
+    cart.push({name, price, qty:1});
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+}
+
+function updateCartCount(){
+  const countEl = document.getElementById("cart-count");
+  if(!countEl) return;
+
+  let totalQty = 0;
+  cart.forEach(item => totalQty += item.qty);
+  countEl.innerText = totalQty;
+}
+
+updateCartCount();
+
+</script>
+<footer class="simple-footer">
+  <p>© 2026 ShopEase • Computer Shop • All Rights Reserved</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,211 @@
+/* ===============================
+   GLOBAL RESET & THEME
+================================ */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body{
+  background:#000;
+  color:#fff;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+/* ===============================
+   NAVBAR (ALL PAGES)
+================================ */
+.navbar{
+  height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 40px;
+  background:linear-gradient(90deg,#000,#0b0b0b);
+  border-bottom:1px solid #1f1f1f;
+}
+
+.logo{
+  font-size:26px;
+  font-weight:bold;
+  color:#00e676;
+}
+
+.nav-links a{
+  margin-left:25px;
+  font-size:15px;
+  color:#ccc;
+  transition:0.3s;
+}
+
+.nav-links a:hover{
+  color:#00e676;
+}
+
+/* ===============================
+   PAGE HEADER (SAME STYLE)
+================================ */
+.page-header{
+  height:180px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:radial-gradient(circle at top,#00c853,#000);
+  border-radius:0 0 40px 40px;
+}
+
+.page-header h1{
+  font-size:38px;
+  text-shadow:0 10px 30px rgba(0,255,130,0.7);
+}
+
+/* ===============================
+   CARDS (SHOP / CART / PRODUCTS)
+================================ */
+.card{
+  background:#1a1a1a;
+  border-radius:20px;
+  padding:20px;
+  box-shadow:0 15px 40px rgba(0,255,130,0.1);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 25px 60px rgba(0,255,130,0.4);
+}
+
+/* ===============================
+   BUTTONS (ALL PAGES)
+================================ */
+.btn{
+  padding:12px 30px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(90deg,#00c853,#2e7d32);
+  color:#fff;
+  font-size:15px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 10px 25px rgba(0,255,130,0.6);
+}
+
+/* ===============================
+   SHOP PAGE
+================================ */
+.products-grid{
+  max-width:1200px;
+  margin:50px auto;
+  padding:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+
+.product-card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border-radius:15px;
+  margin-bottom:15px;
+}
+
+.product-card h3{
+  color:#00e676;
+}
+
+.price{
+  margin:10px 0;
+  font-size:18px;
+  font-weight:bold;
+}
+
+/* ===============================
+   PRODUCT DETAIL PAGE
+================================ */
+.product-detail{
+  max-width:1100px;
+  margin:60px auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  padding:30px;
+}
+
+.product-detail img{
+  width:100%;
+  border-radius:25px;
+  box-shadow:0 20px 50px rgba(0,255,130,0.4);
+}
+
+/* ===============================
+   CART & CHECKOUT
+================================ */
+.checkout-box{
+  max-width:900px;
+  margin:50px auto;
+  padding:30px;
+  border-radius:25px;
+  background:#141414;
+  box-shadow:0 20px 60px rgba(0,255,130,0.3);
+}
+
+.notification{
+  padding:15px;
+  background:linear-gradient(90deg,#00c853,#2e7d32);
+  border-radius:20px;
+  text-align:center;
+  font-weight:bold;
+  margin-bottom:20px;
+}
+
+/* ===============================
+   LOGIN & REGISTER
+================================ */
+.auth-box{
+  width:400px;
+  margin:80px auto;
+  padding:35px;
+  background:#141414;
+  border-radius:30px;
+  box-shadow:0 25px 60px rgba(0,255,130,0.5);
+  text-align:center;
+}
+
+.auth-box h2{
+  margin-bottom:20px;
+  color:#00e676;
+}
+
+.auth-box input{
+  width:100%;
+  padding:12px;
+  margin-bottom:15px;
+  border:none;
+  border-radius:15px;
+  background:#1f1f1f;
+  color:#fff;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media(max-width:900px){
+  .product-detail{
+    grid-template-columns:1fr;
+  }
+
+  .navbar{
+    padding:0 20px;
+  }
+}

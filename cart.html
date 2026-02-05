@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShopEase | Cart</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-logo">ShopEase</div>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="payment.html">Checkout</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<h2 class="page-title">Your Cart</h2>
+
+<div id="cart-items"></div>
+<h3 id="cart-total"></h3>
+
+<a href="payment.html" class="btn">Proceed to Checkout</a>
+
+<script src="cart.js">
+    // Load cart from localStorage
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+/* =========================
+   ADD TO CART (SHOP PAGE)
+========================= */
+function addToCart(name, price){
+  const existing = cart.find(item => item.name === name);
+
+  if(existing){
+    existing.qty += 1;
+  } else {
+    cart.push({ name, price, qty: 1 });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+  alert("Item added to cart");
+}
+
+/* =========================
+   UPDATE NAVBAR CART COUNT
+========================= */
+function updateCartCount(){
+  const countEl = document.getElementById("cart-count");
+  if(!countEl) return;
+
+  let totalQty = 0;
+  cart.forEach(item => totalQty += item.qty);
+  countEl.innerText = totalQty;
+}
+
+/* =========================
+   DISPLAY CART PAGE ITEMS
+========================= */
+function loadCartPage(){
+  const container = document.getElementById("cart-items");
+  const totalEl = document.getElementById("cart-total");
+  if(!container || !totalEl) return;
+
+  container.innerHTML = "";
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    container.innerHTML += `
+      <div class="cart-item">
+        <span>${item.name} (x${item.qty})</span>
+        <span>$${item.price * item.qty}</span>
+        <button onclick="removeItem(${index})">Remove</button>
+      </div>
+    `;
+    total += item.price * item.qty;
+  });
+
+  totalEl.innerText = "Total: $" + total;
+}
+
+/* =========================
+   REMOVE ITEM
+========================= */
+function removeItem(index){
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+  loadCartPage();
+}
+
+/* =========================
+   AUTO LOAD
+========================= */
+updateCartCount();
+loadCartPage();
+
+
+</script>
+<br><br>
+<footer class="simple-footer">
+  <p>© 2026 ShopEase • Computer Shop • All Rights Reserved</p>
+</footer>
+</body>
+</html>

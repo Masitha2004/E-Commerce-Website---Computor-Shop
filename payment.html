@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout | ShopEase</title>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<header>
+  <h1>ShopEase</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="cart.html">Cart</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
+
+</header>
+<div class="checkout-items">
+    <h3>Selected Items</h3>
+    <div id="items-list"></div>
+    <h4 id="total-price"></h4>
+  </div>
+</div>
+
+<div class="checkout-container">
+    <div class="page-heading">
+        <h2>Checkout</h2>
+    </div>
+  
+  <form id="checkoutForm">
+    <div class="form-group">
+      <label>Full Name</label>
+      <input type="text" required>
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" required>
+    </div>
+
+    <div class="form-group">
+      <label>Phone</label>
+      <input type="text" required>
+    </div>
+
+    <div class="form-group">
+      <label>Address</label>
+      <textarea required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Payment Method</label>
+      <select required>
+        <option value="">Select</option>
+        <option>Cash on Delivery</option>
+        <option>Credit / Debit Card</option>
+        <option>PayPal</option>
+      </select>
+      <label for="payment">Card Name</label>
+      <select id="payment" required>
+        <option value="">Select</option>
+        <option value="visa">Visa</option>
+        <option value="mastercard">MasterCard</option>
+  </select>
+
+  <div id="card-logo"></div> 
+
+  <br>
+    </div>
+
+    <button type="submit" class="btn">Place Order</button>
+  </form>
+</div>
+<div id="toast">
+  <span class="icon">✔</span>
+  <span class="message">Order Placed Successfully!</span>
+</div>
+
+<script>
+document.getElementById("checkoutForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    // Clear cart
+    localStorage.removeItem("cart");
+
+    // Show toast
+    const toast = document.getElementById("toast");
+    toast.classList.add("show");
+
+    // Hide after 3 seconds & redirect
+    setTimeout(() => {
+        toast.classList.remove("show");
+        window.location.href = "index.html"; // go to home
+    }, 3000);
+});
+
+function displayCartItems() {
+    const cartData = JSON.parse(localStorage.getItem("cart")) || [];
+    const itemsList = document.getElementById("items-list");
+    const totalPriceEl = document.getElementById("total-price");
+    itemsList.innerHTML = "";
+
+    let total = 0;
+    cartData.forEach(item => {
+        const div = document.createElement("div");
+        div.classList.add("item");
+        div.innerHTML = `
+          <span class="item-name">${item.name} x ${item.qty}</span>
+          <span class="item-price">$${item.price * item.qty}</span>
+        `;
+        itemsList.appendChild(div);
+        total += item.price * item.qty;
+    });
+
+    totalPriceEl.innerText = "Total: $" + total;
+}
+
+// Call on page load
+displayCartItems();
+
+</script>
+<footer class="simple-footer">
+  <p>© 2026 ShopEase • Computer Shop • All Rights Reserved</p>
+</footer>
+</body>
+</html>

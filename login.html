@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | ShopEase</title>
+  <link rel="stylesheet" href="login.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body class="login-page">
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <h2 class="logo">ShopEase</h2>
+  </nav>
+
+  <div class="login-container">
+  <div class="login-box">
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button id="loginTab" class="active" onclick="showLogin()">Login</button>
+      <button id="registerTab" onclick="showRegister()">Register</button>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <form id="loginForm" onsubmit="loginUser(event)">
+      <h1>Welcome Back</h1>
+      <input type="email" id="loginEmail" placeholder="Email" required>
+      <input type="password" id="loginPassword" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+
+    <!-- REGISTER FORM -->
+    <form id="registerForm" onsubmit="registerUser(event)" style="display:none;">
+      <h1>Create Account</h1>
+      <input type="text" id="regName" placeholder="Full Name" required>
+      <input type="email" id="regEmail" placeholder="Email" required>
+      <input type="password" id="regPassword" placeholder="Password" required>
+      <button type="submit">Register</button>
+    </form>
+
+  </div>
+</div>
+  <!-- Success Notification -->
+<div id="loginSuccess" class="success-popup">
+  <div class="success-box">
+    <div class="checkmark">✓</div>
+    <h2>Login Successful</h2>
+    <p>Welcome to ShopEase</p>
+  </div>
+</div>
+<!-- User Not Found Popup -->
+<div id="userNotFound" class="popup-overlay">
+  <div class="popup-card warning">
+    <div class="icon">!</div>
+    <h2>User Not Found</h2>
+    <p>No account exists with this email.</p>
+    <button onclick="goToRegister()">Register Now</button>
+  </div>
+</div>
+
+
+  <script src="login.js"></script>
+</body>
+</html>
