@@ -4,12 +4,18 @@
   <title>ShopEase | Shop</title>
   <link rel="stylesheet" href="Css/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dit/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
 <!-- Navbar -->
 <nav class="navbar">
   <div class="nav-logo">ShopEase</div>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="shop.html" class="active">Shop</a></li>
@@ -27,17 +33,17 @@
 <h3 class="category-title">Electronics</h3>
 <div class="products-grid">
   <div class="product-card">
-    <img src="">
+    <img src="asset/61m9Ac-HC2L._AC_SY450_.jpg">
     <h3>Wireless Headphones</h3>
-    <p class="price">$25</p>
+    <p class="price">Rs.2500.00</p>
     <button onclick="addToCart('Wireless Headphones',25)">Add to Cart</button>
   
   </div>
 
   <div class="product-card">
-    <img src="images/speaker.jpg">
+    <img src="asset/blue spi.webp">
     <h3>Bluetooth Speaker</h3>
-    <p class="price">$30</p>
+    <p class="price">Rs.1750.00</p>
     <button onclick="addToCart('Bluetooth Speaker',30)">Add to Cart</button>
     
   </div>
@@ -47,17 +53,17 @@
 <h3 class="category-title">pc & Laptops</h3>
 <div class="products-grid">
   <div class="product-card">
-    <img src="images/tshirt.jpg">
+    <img src="asset/lap 01.webp">
     <h3>i7 8th Gen Laptop|Asus</h3>
-    <p class="price">$15</p>
+    <p class="price">Rs.125,000.00</p>
     <button onclick="addToCart('i7 8th Gen Laptop|Asus',15)">Add to Cart</button>
     <a href="product.html?id=1" class="view-btn">View Details</a>
   </div>
 
   <div class="product-card">
-    <img src="images/shoes.jpg">
+    <img src="asset/Lap 02.webp">
     <h3>i5 8th Gen Laptop|Dell</h3>
-    <p class="price">$45</p>
+    <p class="price">Rs.135,000.00</p>
     <button onclick="addToCart('i5 8th Gen Laptop|Dell',45)">Add to Cart</button>
     <a href="product.html?id=1" class="view-btn">View Details</a>
   </div>
@@ -67,17 +73,17 @@
 <h3 class="category-title">Accessories</h3>
 <div class="products-grid">
   <div class="product-card">
-    <img src="images/watch.jpg">
+    <img src="asset/What-is-Keyboard-8.webp">
     <h3>Keyboard</h3>
-    <p class="price">$40</p>
+    <p class="price">Rs.3750.00</p>
     <button onclick="addToCart('Keyboard',40)">Add to Cart</button>
     <a href="product.html?id=1" class="view-btn">View Details</a>
   </div>
 
   <div class="product-card">
-    <img src="images/bag.jpg">
+    <img src="asset/mouse.webp">
     <h3>Mouse</h3>
-    <p class="price">$35</p>
+    <p class="price">Rs.1500.00</p>
     <button onclick="addToCart('Mouse',35)">Add to Cart</button>
     <a href="product.html?id=1" class="view-btn">View Details</a>
   </div>
@@ -87,17 +93,17 @@
 <h3 class="category-title">Furnitures</h3>
 <div class="products-grid">
   <div class="product-card">
-    <img src="images/lamp.jpg">
+    <img src="asset/c table.webp">
     <h3>Computer Table</h3>
-    <p class="price">$22</p>
+    <p class="price">Rs.37,500.00</p>
     <button onclick="addToCart('Computer Table',22)">Add to Cart</button>
     <a href="product.html?id=1" class="view-btn">View Details</a>
   </div>
 
   <div class="product-card">
-    <img src="images/chair.jpg">
+    <img src="asset/c chair.jpg">
     <h3>Computer Chair</h3>
-    <p class="price">$55</p>
+    <p class="price">Rs.22,000.00</p>
     <button onclick="addToCart('Computer Chair',55)">Add to Cart</button>
     <a href="product_de.html" class="view-btn">View Details</a>
   </div>

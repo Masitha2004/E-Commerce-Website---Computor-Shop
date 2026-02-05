@@ -61,3 +61,6 @@ if(product){
     <h2 style="color:red">Product not found</h2>
   `;
 }
+function toggleMenu(){
+  document.getElementById("navLinks").classList.toggle("active");
+}

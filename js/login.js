@@ -89,4 +89,6 @@ document.getElementById("userNotFound").addEventListener("click", function(e){
     this.classList.remove("active");
   }
 });
- 
+function toggleMenu(){
+  document.getElementById("navLinks").classList.toggle("active");
+}

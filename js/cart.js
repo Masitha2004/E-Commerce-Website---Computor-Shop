@@ -41,3 +41,6 @@ function removeItem(index){
 
 // Load cart on page load
 loadCartPage();
+function toggleMenu(){
+  document.getElementById("navLinks").classList.toggle("active");
+}
