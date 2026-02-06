@@ -642,6 +642,10 @@
   gap:20px;
 }
 
+.nav-links{
+  display:flex;
+}
+
 /* MOBILE */
 @media(max-width:768px){
   .nav-links{
