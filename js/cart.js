@@ -29,7 +29,7 @@ function loadCartPage(){
     total += item.price * item.qty;
   });
 
-  if(totalEl) totalEl.innerText = "Total: $" + total;
+  if(totalEl) totalEl.innerText = "Total: Rs." + total;
 }
 
 // Remove item from cart

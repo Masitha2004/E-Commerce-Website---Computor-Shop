@@ -35,9 +35,7 @@
     // Load cart from localStorage
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-/* =========================
-   ADD TO CART (SHOP PAGE)
-========================= */
+/* ADD TO CART (SHOP PAGE)*/
 function addToCart(name, price){
   const existing = cart.find(item => item.name === name);
 
